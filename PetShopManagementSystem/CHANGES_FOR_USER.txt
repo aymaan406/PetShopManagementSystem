@@ -1,0 +1,39 @@
+PET FOOD MANAGEMENT SYSTEM - FINAL CHANGES
+
+1. Customer Profile
+- Customer dashboard has Profile.
+- Profile displays customer information in a grid without password.
+- Grid fields can be edited and saved with Update.
+
+2. Customer Order Approval
+- Customer orders are assigned to the manager who owns the selected products.
+- New orders are PENDING.
+- Manager can confirm or reject PENDING/HOLD orders.
+- Stock is deducted only after manager confirmation.
+- A Payment record is created as UNPAID when the order is placed.
+- Customer payment is allowed only when OrderStatus = CONFIRMED and PaymentStatus = UNPAID.
+- Fixed OrderItem insert so the computed SubTotal column is not written manually.
+
+3. Manager
+- Legacy manager terminology/database objects were replaced with Manager.
+- Manager dashboard contains Manage Products and Manage Orders only.
+- Manager report option was removed.
+
+4. Admin
+- Admin dashboard has Manage Managers, Manage Customers, Admin Reports and View Products.
+- Manage Customers provides ACTIVE, INACTIVE and BLOCK controls.
+- Manage Managers provides ACTIVE, INACTIVE and BLOCK controls.
+- Newly registered customers are INACTIVE by default.
+- Only ACTIVE customer accounts can log in.
+- BLOCKED customer accounts cannot log in.
+
+5. Main table
+- Added [Main table] with ID, USERNAME, PASSWORD, ROLE, STATUS.
+- ROLE values: 1=ADMIN, 2=CUSTOMER, 3=MANAGER.
+- STATUS values: 0=INACTIVE, 1=ACTIVE, 2=BLOCKED.
+- Database triggers keep [Main table] synchronized with Admin, Customer and Manager.
+
+6. Database
+- SQL script drops PetShopDB if it exists and recreates it from scratch.
+- No legacy manager table/role/foreign key remains.
+- SQL Server target: SQL Server / SSMS 2022.

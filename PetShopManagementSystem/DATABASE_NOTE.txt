@@ -1,0 +1,10 @@
+Database setup:
+1. Open SQL/01_Create_PetShopDB.sql in SQL Server Management Studio.
+2. Run the complete script as a user with permission to drop/create PetShopDB.
+3. The script drops an existing PetShopDB and creates a clean PetShopDB.
+4. Update App.config if your SQL Server instance is not .\SQLEXPRESS.
+5. Build and run the .NET Framework 4.8 application.
+
+Roles: 1 Admin, 2 Customer, 3 Manager.
+Statuses: 0 Inactive, 1 Active, 2 Blocked.
+New customers are inactive until an Admin activates them.
